@@ -4,6 +4,9 @@
 	margin:0;
 	box-sizing: border-box;
 }
+a {
+	color: white;
+}
 .navbar {
 	background-color: #000;
 	color: #d8d8d8;
@@ -106,9 +109,6 @@ img:hover {
 }
 @media screen and (max-width: 600px) {
   * {
-	font-size: 32px;
-  }
-  img {
-  	display: none !important;
+	font-size: 32px !important;
   }
 }
