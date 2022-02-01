@@ -102,3 +102,20 @@ img:hover {
 	filter: grayscale(0);
 	cursor: pointer;
 }
+
+
+@media screen and (max-width: 600px) {
+	.content {
+	width: 100%;
+	margin-top: 100;
+	}
+	img {
+		display: none;
+	}
+	.navbar {
+		font-size: 30px;
+	}
+	.navbar a.nav-logo {
+		display: none;
+	}
+}
