@@ -40,7 +40,6 @@ p { color: #808080; }
 	font-weight: bold;
 
 }
-
 .navbar ul {
 	float: right;
 	list-style: none;
@@ -54,7 +53,7 @@ p { color: #808080; }
 .navbar ul li a {
 	display: block;
 	text-align: center;
-	min-width: 120px;
+	/*min-width: 120px;*/
 	padding: 0 30px;
 }
 body {
@@ -63,12 +62,12 @@ body {
 .content {
 	font-family: 'Allerta Stencil', sans-serif;
 	color: #d8d8d8;
-	margin-top: 100px;
-	margin-left: 100px;
+	margin-top: 160px;
+	margin-left: 60px;
 	position: relative;
 }
 .photos {
-	margin-top:  80px;
+	margin-top:  160px;
 }
 h1 {
 	font-size: 70px;
@@ -95,8 +94,9 @@ main {
 	background-color:#848482;
 }
 img {
-	float: left;
+	float: left, top;
 	/*margin-top: 80px;*/
+	position: relative;
 	margin-left: 50px;
 	width: 600px;
 	transition: 1s;
