@@ -3,18 +3,14 @@
         box-sizing: border-box;
       }
 
-      html {
-        font-size: 20px;
-      }
-
-      @media (min-width: 600px) {
-        html {
-          font-size: 16px;
-        }
-      }
+      html { font-size: 16px; }
+      @media (min-width: 600px) { html { font-size: 16px; } }
 
       main {
         margin-top: 140px;   /* adjust to taste */
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        align-items: stretch; /* important */
       }
 
       body {
@@ -59,6 +55,12 @@
         letter-spacing: 2px;
         font-weight: bold;
         text-align: center;
+        white-space: nowrap;        /* don't wrap */
+        overflow: hidden;           /* stop it spilling out */
+        text-overflow: ellipsis;    /* optional: … if it still can't fit */
+        max-width: 100%;
+        font-size: clamp(18px, 6vw, 40px);  /* shrink on small screens */
+        line-height: 1.1;
       }
 
       .navbar ul {
@@ -114,24 +116,44 @@
         margin-top: 10px;
       }
 
-      .photos {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-right: 0;
-        padding-right: 0;
-        width: 100%;
-        max-width: 100%;
-      }
+/* BIG SCREEN (default): original behaviour, no crop */
+.photos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 0;
+  padding-right: 0;
+  width: 100%;
+  max-width: 100%;
+}
 
-      .photos img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border: none;
-        filter: grayscale(1);
-        transition: filter 1s;
-      }
+.photos img {
+  width: 100%;
+  height: auto;          /* important: restores no top/bottom crop */
+  display: block;
+  border: none;
+  filter: grayscale(1);
+  transition: filter 1s;
+
+  /* important: undo the flex-crop rules */
+  flex: 0 0 auto;
+  object-fit: contain;   /* or remove entirely; contain prevents cropping */
+}
+
+/* SMALL SCREEN: cropped-to-fit stack */
+@media (max-width: 768px) {
+  .photos {
+    height: 100%;
+    align-self: stretch;
+  }
+
+  .photos img {
+    flex: 1 1 0;
+    height: 0;           /* let flex control height */
+    object-fit: cover;   /* allow cropping */
+    object-position: center;
+  }
+}
 
       .photos img:hover {
         filter: grayscale(0);
