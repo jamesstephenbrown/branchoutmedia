@@ -3,8 +3,7 @@
         box-sizing: border-box;
       }
 
-      html { font-size: 16px; }
-      @media (min-width: 600px) { html { font-size: 16px; } }
+      html { font-size: 14px; }
 
       main {
         margin-top: 140px;   /* adjust to taste */
@@ -111,7 +110,7 @@
       }
 
       .content p {
-        font-size: 1rem;
+        /* font-size: 1rem; */
         line-height: 1.5;
         margin-top: 10px;
       }
