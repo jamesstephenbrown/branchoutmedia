@@ -16,6 +16,11 @@
         background-color: #000;
         margin: 0;
         padding: 0;
+        text-shadow: none;
+      }
+
+      /* Scope text-shadow to content areas only, not nav/chrome */
+      .content, main.video-page {
         text-shadow:
           0 0 8px rgba(0, 0, 0, 0.6),
           0 2px 12px rgba(0, 0, 0, 0.55);
@@ -185,7 +190,231 @@
       .btns:hover {
         background-color: #848482;
       }
-      
+
+      /* ── Award highlight (replaces legacy <FONT> tags) ──── */
+      .award {
+        color: #FFFF8F;
+        font-style: italic;
+      }
+
+      /* ── Active nav item ────────────────────────────────── */
+      .nav-menu li.active a {
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 8px;
+        padding: 6px 14px;
+        line-height: 1.4;
+      }
+
+      /* ── Nav top row (logo + hamburger) ─────────────────── */
+      .nav-top {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .nav-toggle {
+        display: none;
+        position: absolute;
+        right: 0;
+        background: none;
+        border: none;
+        color: #d8d8d8;
+        font-size: 26px;
+        cursor: pointer;
+        line-height: 1;
+        padding: 2px 4px;
+      }
+
+      /* ── Hamburger mobile menu ───────────────────────────── */
+      @media (max-width: 480px) {
+        .nav-toggle {
+          display: block;
+        }
+        .nav-menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          max-width: 100%;
+          padding-bottom: 8px;
+          gap: 0;
+        }
+        .nav-menu.open {
+          display: flex;
+        }
+        .nav-menu li {
+          flex: none;
+          width: 100%;
+        }
+        .nav-menu a {
+          padding: 8px 0;
+        }
+      }
+
+      /* ── YouTube external link button ───────────────────── */
+      .yt-link {
+        display: inline-block;
+        margin-top: 14px;
+        color: #fff;
+        font-family: 'Allerta Stencil', sans-serif;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border: 1.5px solid rgba(255,255,255,0.35);
+        padding: 9px 20px;
+        border-radius: 4px;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .yt-link:hover {
+        border-color: #fff;
+        background: rgba(255,255,255,0.08);
+      }
+
+      /* ── YouTube embedding-disabled fallback ────────────── */
+      .video-yt-fallback {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #111;
+        gap: 14px;
+        text-shadow: none;
+      }
+      .video-yt-fallback p {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.85rem;
+        margin: 0;
+        font-family: 'Allerta Stencil', sans-serif;
+        text-align: center;
+        padding: 0 20px;
+      }
+      .video-yt-fallback a {
+        color: #fff;
+        font-family: 'Allerta Stencil', sans-serif;
+        font-size: 1rem;
+        text-decoration: none;
+        border: 1.5px solid rgba(255,255,255,0.45);
+        padding: 10px 22px;
+        border-radius: 4px;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .video-yt-fallback a:hover {
+        border-color: #fff;
+        background: rgba(255,255,255,0.08);
+      }
+
+      /* ── Click-to-load video poster ─────────────────────── */
+      .video-poster {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0d0d0d;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .video-poster:hover {
+        background: #1c1c1c;
+      }
+      .play-icon {
+        font-size: 3.5rem;
+        color: rgba(255, 255, 255, 0.65);
+        transition: color 0.2s, transform 0.15s;
+        line-height: 1;
+        user-select: none;
+      }
+      .video-poster:hover .play-icon {
+        color: #fff;
+        transform: scale(1.12);
+      }
+
+      /* ── Video page ─────────────────────────────────────── */
+
+      main.video-page {
+        display: block;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 140px 20px 96px;
+      }
+
+      .video-text {
+        margin: 56px 0 28px;
+        font-family: 'Allerta Stencil', sans-serif;
+      }
+
+      .video-text:first-child {
+        margin-top: 0;
+      }
+
+      main.video-page h1 {
+        margin: 0 0 20px;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      main.video-page h3 {
+        margin: 0 0 14px;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        color: #d8d8d8;
+      }
+
+      main.video-page p {
+        max-width: 68ch;
+        margin: 0 0 1em;
+        font-size: 1.08rem;
+        color: rgb(200, 200, 200);
+        font-family: 'Allerta Stencil', sans-serif;
+      }
+
+      .vimeo-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .vimeo-wrap iframe {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .final-text {
+        margin-top: 56px;
+      }
+
+      @media (max-width: 600px) {
+        main.video-page {
+          padding-top: 120px;
+          padding-bottom: 72px;
+        }
+
+        .video-text {
+          margin: 44px 0 22px;
+        }
+
+        main.video-page p {
+          font-size: 1rem;
+        }
+      }
+
+      /* ── End video page ─────────────────────────────────── */
+
       @media (max-width: 768px) {
 
         /* Stack layout normally but allow layering */

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Branch Out Media</title>
+  <meta name="description" content="Contact James Brown at Branch Out Media for documentary editing and directing services in Auckland, New Zealand.">
+  <meta name="robots" content="index, follow">
+  <title>Contact – Branch Out Media</title>
   <link href="style.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -11,14 +13,16 @@
 </head>
   <body>
     <nav class="navbar">
-    <a href="index.html" class="nav-logo">Branch Out Media</a>
-
-    <ul class="nav-menu">
+      <div class="nav-top">
+        <a href="index.html" class="nav-logo">Branch Out Media</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+      <ul class="nav-menu">
         <li><a href="./index.html">Home</a></li>
-        <li><a href="./bio.html">Bio</a></li>
         <li><a href="./services.html">Services</a></li>
-        <li><a href="./contact.html">Contact</a></li>
-    </ul>
+        <li><a href="./showcase.html">Showcase</a></li>
+        <li class="active"><a href="./contact.html">Contact</a></li>
+      </ul>
     </nav>
     <main>
       <div class="content">
@@ -36,5 +40,13 @@
       </div>
 
     </main>
+  <script>
+    var toggle = document.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.toggle('open');
+      });
+    }
+  </script>
   </body>
 </html>
