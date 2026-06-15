@@ -67,14 +67,6 @@
         line-height: 1.1;
       }
 
-      .navbar ul {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-        margin: 0;
-        padding: 0;
-      }
-
       .nav-menu {
         list-style: none;
         display: flex;
@@ -417,11 +409,10 @@
 
       @media (max-width: 768px) {
 
-        /* Stack layout normally but allow layering */
-        main {
+        /* Stack layout normally but allow layering — homepage only */
+        main:not(.video-page) {
           position: relative;
           display: block;
-          /* margin-top: 160px; */
           overflow: hidden;
         }
 
@@ -454,8 +445,8 @@
           display: block;
         }
 
-        /* GRADIENT over entire main area */
-        main::before {
+        /* GRADIENT over entire main area — homepage only */
+        main:not(.video-page)::before {
           content: "";
           position: absolute;
           inset: 0;
